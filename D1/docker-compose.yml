@@ -1,0 +1,17 @@
+version: '2'
+services:
+    mpiproj:
+        image: mpiproj:latest
+        build: 
+            context: .
+            dockerfile: Dockerfile
+        container_name: quick-sort
+        volumes:
+           -  .:/aun/k200286
+        command: mpi hello.c
+
+        nginx-server:
+          image: nginx
+          container_name: nginx-server-demo
+          ports: 
+              - 8080:80
